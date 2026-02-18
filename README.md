@@ -151,8 +151,8 @@ Este projeto demonstra:
 
 ------------------------------------------------------------------------
 
-# 👨‍💻 Desenvolvido por
+# 👨‍💻 Desenvolvido por:
 
-## Pedro
+## Pedro170
 
 ### Projeto de Portfólio.
