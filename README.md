@@ -1,73 +1,157 @@
-# React + TypeScript + Vite
+# 🏦 Orbia Bank -- Banco Digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação Full Stack de um banco digital fictício chamada **Orbia
+Bank**, composta por:
 
-Currently, two official plugins are available:
+-   🔹 Front-end em React + Vite + TypeScript
+-   🔹 API REST simulada com json-server
+-   🔹 Deploy do Front no GitHub Pages
+-   🔹 Deploy da API no Render
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Projeto desenvolvido para fins educacionais e portfólio.
 
-## React Compiler
+------------------------------------------------------------------------
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 📌 Visão Geral
 
-## Expanding the ESLint configuration
+O sistema simula funcionalidades de uma instituição financeira digital:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   🔐 Login de usuário
+-   💳 Listagem de produtos financeiros
+-   📊 Categorias (Cartões, Investimentos, Empréstimos, Financiamentos)
+-   💰 Listagem de transações
+-   🔄 Atualização de status de produtos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+------------------------------------------------------------------------
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 🛠️ Tecnologias Utilizadas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Front-end
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-   React
+-   TypeScript
+-   Vite
+-   Context API
+-   Custom Hooks
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Back-end (Simulado)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+-   Node.js
+-   json-server
+-   REST API
+
+## Deploy
+
+-   GitHub Pages (Front-end)
+-   Render (API)
+
+------------------------------------------------------------------------
+
+# 🚀 Como Rodar o Projeto Completo
+
+## ✅ Pré-requisitos
+
+Instale:
+
+-   Node.js (versão 18+ recomendada)
+
+Verifique:
+
+node -v\
+npm -v
+
+------------------------------------------------------------------------
+
+# 🔹 1️⃣ Rodando a API
+
+Entre na pasta da API:
+
+cd api
+
+Instale as dependências:
+
+npm install
+
+Inicie o servidor:
+
+npx json-server --watch db.json --port 3000
+
+A API estará disponível em:
+
+http://localhost:3000
+
+------------------------------------------------------------------------
+
+# 🔹 2️⃣ Rodando o Front-end
+
+Abra outro terminal.
+
+Entre na pasta do front:
+
+cd front-end
+
+Instale as dependências:
+
+npm install
+
+Inicie o projeto:
+
+npm run dev
+
+O projeto abrirá em:
+
+http://localhost:5173
+
+------------------------------------------------------------------------
+
+# 🔗 Configuração da API no Front
+
+Para rodar localmente:
+
+export const BASE_URL = "http://localhost:3000/";
+
+Para usar a API em produção (Render):
+
+export const BASE_URL = "https://orbia-bank-api.onrender.com/";
+
+------------------------------------------------------------------------
+
+# 📚 Endpoints da API
+
+Login: GET /usuarios?email={email}&senha={senha}
+
+Produtos: GET /produtos?usuarioId={id}
+
+Transações: GET /transacoes?usuarioId={id}
+
+Atualização de Produto: PATCH /produtos/{id}
+
+Exemplo Body: { "ativo": true }
+
+------------------------------------------------------------------------
+
+# ⚠️ Observações
+
+-   Utiliza json-server (não há banco de dados real)
+-   Os dados ficam no arquivo db.json
+-   Alterações via PATCH/POST modificam o db.json
+-   No plano gratuito do Render os dados podem reiniciar
+
+------------------------------------------------------------------------
+
+# 🎯 Objetivo
+
+Este projeto demonstra:
+
+-   Estruturação de aplicação Full Stack
+-   Integração Front-end / API REST
+-   Organização com hooks e contexto
+-   Simulação de sistema financeiro
+-   Deploy em produção
+
+------------------------------------------------------------------------
+
+# 👨‍💻 Desenvolvido por
+
+Pedro
+Projeto de Portfólio.
