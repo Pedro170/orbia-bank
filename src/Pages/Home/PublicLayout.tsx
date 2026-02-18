@@ -1,4 +1,5 @@
 import BannerTopo from "./BannerTopo";
+import Footer from "./Footer";
 import Header from "./Header";
 import Sobre from "./Sobre";
 
@@ -8,6 +9,7 @@ const PublicLayout = () => {
       <Header />
       <BannerTopo />
       <Sobre />
+      <Footer />
     </>
   );
 };

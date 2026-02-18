@@ -899,6 +899,16 @@ button {
   background: #c62828;
 }
 
+.footer-principal {
+  font-family: var(--font-heading-02);
+  background: var(--color-03);
+  color: var(--color-06);
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
 
 /* media querys */
 
@@ -922,7 +932,77 @@ button {
   }
 }
 
+@media(max-width: 1100px) {
+  .header-principal .wrapper {
+    flex-direction: column; 
+    height: initial;
+  }
+
+  .home-sobre__grid-item.textos-foto .box-img-texto {
+    padding: 0 0 1.25rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .home-sobre__grid-item.textos-institucionais ul {
+    padding-top: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .home-sobre__grid-item.textos-foto .box-banner {
+    margin-left: 1.125rem;
+  }
+}
+
+@media(max-width: 750px) {
+  .header-principal {
+    margin: 0;
+  }
+
+  .header-principal .btn-acessos {
+    width: 100%;
+  }
+
+  .header-principal .btn-acessos .form-login-senha,
+  .header-principal .btn-acessos .criar-conta {
+    max-width: initial;
+  }
+
+  .header-principal .btn-acessos .criar-conta {
+    text-align: center;
+  }
+
+  .home-banner-topo .box-texto {
+    display: none;
+  }
+
+  .home-sobre__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-sobre__grid-item.textos-institucionais ul {
+    row-gap: 1.5rem;
+  }
+
+  .home-sobre__grid-item.textos-institucionais {
+    padding-bottom: var(--gap-m);
+  }
+
+  .home-sobre__grid-item.textos-foto {
+    padding-top: var(--gap-m);
+  }
+
+  .home-sobre__grid-item.textos-foto .box-banner {
+    order: -1;
+    margin: 0;
+  }
+}
+
 @media(max-width: 600px) {
+  
+  .home-sobre__grid-item.textos-institucionais {
+    padding-top: var(--gap);
+  }
+  
   .home-logado-section .home-logado .home-logado-navegacao {
     position: fixed;
     left: 10px;
