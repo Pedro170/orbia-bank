@@ -153,5 +153,6 @@ Este projeto demonstra:
 
 # 👨‍💻 Desenvolvido por
 
-Pedro
-Projeto de Portfólio.
+## Pedro
+
+### Projeto de Portfólio.
