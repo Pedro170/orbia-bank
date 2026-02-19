@@ -47,9 +47,41 @@ O sistema simula funcionalidades de uma instituição financeira digital:
 
 ------------------------------------------------------------------------
 
-# 🚀 Como Rodar o Projeto Completo
+## 🔐 Como realizar o Login
 
-## ✅ Pré-requisitos
+Para acessar o sistema, utilize um dos usuários cadastrados no `db.json`.
+
+## 📌 Usuários Disponíveis
+
+### 👩 Karol Rocha
+- **Email:** karol@email.com  
+- **Senha:** 123456  
+- **Saldo inicial:** R$ 13.450,00  
+
+### 👨 Carlos Oliveira
+- **Email:** carlos@email.com  
+- **Senha:** 123456  
+- **Saldo inicial:** R$ 8.450,00  
+---
+## 🚀 Passo a Passo para Login
+
+1.Acesse a tela de login no navegador pelo link da aplicação online.
+2. Informe:
+   - **Email**
+   - **Senha**
+3. Clique no botão **Entrar**.
+4. Se as credenciais estiverem corretas, você será redirecionado para o **Dashboard**.
+---
+## ⚠️ Observações
+
+- O login valida as informações com base nos dados cadastrados no `db.json`.
+- Caso o email ou senha estejam incorretos, o sistema exibirá uma mensagem de erro.
+- Este projeto utiliza autenticação simulada (mock), apenas para fins de estudo.
+---
+💡 Dica: Caso queira testar com outro usuário, basta adicionar um novo registro no `db.json` seguindo o mesmo padrão.
+
+## 🚀 Como Rodar o Projeto Completo
+### ✅ Pré-requisitos
 
 Instale:
 
