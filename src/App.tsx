@@ -5,7 +5,7 @@ import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
-    <BrowserRouter basename="/orbia-bank/">
+    <BrowserRouter>
       <DataContextProvider>
       <AppRoutes />
       </DataContextProvider>

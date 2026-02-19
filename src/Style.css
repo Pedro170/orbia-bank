@@ -392,6 +392,10 @@ button {
   padding: 1.25rem;
 }
 
+.home-logado {
+  position: relative;
+}
+
 .home-logado.container {
   gap: 0;
   border-radius: var(--gap-m);

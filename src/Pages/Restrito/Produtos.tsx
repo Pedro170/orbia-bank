@@ -3,6 +3,7 @@ import { useProdutos } from "../../hooks/useProdutos";
 import StatusBadge from "../../components/StatusBadge";
 import type { Produto } from "../../types/types";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import Loading from "../../components/Loading";
 
 const categoriaLabels: Record<string, string> = {
   cartao: "Cartões",
@@ -60,7 +61,7 @@ const Produtos = () => {
     {}
   );
 
-  if (loading) return <div>Carregando produtos...</div>;
+  if (loading === true) return <Loading />;
 
   return (
     <div className="produtos-page">

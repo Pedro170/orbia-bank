@@ -3,6 +3,7 @@ import { useDataContext } from "../../context/DataContext";
 import type { Transacao } from "../../types/types";
 import useFetch from "../../hooks/useFetch";
 import { TRANSACOES_GET } from "../../utils/API";
+import Loading from "../../components/Loading";
 
 const formatDatePtBR = (dateString: string): string => {
   const date = new Date(dateString);
@@ -60,7 +61,7 @@ const Dashboard = () => {
       <div className="transacoes">
         <h2>Transações Recentes</h2>
 
-        {loadingTransacoes && <p>Carregando...</p>}
+        {loadingTransacoes && <Loading />}
         {errorTransacoes && <p>Erro: {errorTransacoes}</p>}
 
         <ul>
@@ -74,11 +75,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <strong
-                style={{
-                  color: t.tipo === "entrada" ? "green" : "red",
-                }}
-              >
+              <strong style={{color: t.tipo === "entrada" ? "green" : "red",}}>
                 {t.tipo === "entrada" ? "+" : "-"}{" "}
                 {t.valor.toLocaleString("pt-BR", {
                   style: "currency",
