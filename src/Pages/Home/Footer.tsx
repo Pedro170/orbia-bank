@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="footer-principal">
-      <p>2026 © Todos os direitos reservados | João Pedro dos Santos.</p>
+      <p style={{paddingInline: '.5rem'}}>2026 © Todos os direitos reservados | João Pedro dos Santos.</p>
     </footer>
   )
 }

@@ -19,17 +19,6 @@ export type Produto = {
   usuarioId: number;
 };
 
-export type Vendas = {
-  id: string;
-  nome: string;
-  preco: number;
-  status: "pago" | "processando" | "falha";
-  pagamento: "boleto" | "cartão" | "pix";
-  data: string;
-  parcelas: number | null;
-};
-
-
 export type Transacao = {
   id: number;
   descricao: string;
@@ -40,7 +29,6 @@ export type Transacao = {
 };
 
 export type IDataContext = {
-  data: Vendas[] | null;
   loading: boolean;
   error: string | null;
 

@@ -22,7 +22,7 @@ const styleLoading: React.CSSProperties = {
 
 const Loading = () => {
   return (
-    <div className="flex-center" style={styleLoading}>
+    <div className="flex-center flex-column" style={styleLoading}>
       <div style={style}>
         <style>
           {`
@@ -35,6 +35,11 @@ const Loading = () => {
           `}
         </style>
       </div>
+      <p style={{
+        marginTop: '10px',
+        fontSize: '1.125rem',
+        fontFamily: 'Montserrat'
+        }}>Carregando...</p>
     </div>
   )
 }
