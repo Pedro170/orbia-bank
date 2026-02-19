@@ -139,20 +139,172 @@ Exemplo Body: { "ativo": true }
 
 ------------------------------------------------------------------------
 
-# 🎯 Objetivo
 
-Este projeto demonstra:
+## 📐 Arquitetura da Aplicação -- Orbia Bank
 
--   Estruturação de aplicação Full Stack
--   Integração Front-end / API REST
--   Organização com hooks e contexto
--   Simulação de sistema financeiro
--   Deploy em produção
+### 📌 Visão Geral
+
+A aplicação foi construída utilizando **React + TypeScript**, seguindo
+princípios de separação de responsabilidades, reutilização de
+componentes e organização por camadas.
 
 ------------------------------------------------------------------------
 
+## 🧩 Separação de Componentes
+
+### ✔ Decisão
+
+A aplicação foi dividida em:
+
+-   **Layouts**
+    -   `PublicLayout`
+    -   `PrivateLayout`
+-   **Páginas**
+    -   `Dashboard`
+    -   `Produtos`
+-   **Componentes reutilizáveis**
+    -   `StatusBadge`
+    -   `Breadcrumbs`
+    -   `Input`
+    -  `ProdutoItem`
+    -  `Modal`
+    -  `AlertModal`
+-   **Hooks customizados**
+    -   `useFetch`
+    -   `useProdutos`
+    -   `useTransacoes`
+-   **Camada de API**
+    -   `API.ts`
+
+### ✔ Justificativa
+
+Aplicação do princípio **Single Responsibility (SRP)**:
+
+-   Layout → estrutura visual
+-   Página → regra de negócio
+-   Componente → UI isolada
+-   Hook → dados e efeitos
+-   API → centralização de endpoints
+
+Benefícios:
+
+-   Baixo acoplamento
+-   Alta reutilização
+-   Código testável
+-   Escalável
+
+------------------------------------------------------------------------
+
+## 🌐 Organização das Chamadas de API
+
+### ✔ Decisão
+
+-   Centralização dos endpoints em `API.ts`
+-   Hooks específicos para cada domínio (`useProdutos`, `useTransacoes`)
+-   Hook genérico `useFetch`
+-   Tratamento de erros dentro do hook
+
+### ✔ Justificativa
+
+Evita:
+
+-   URLs hardcoded
+-   Fetch espalhado pela aplicação
+
+Garante:
+
+-   Manutenção simples
+-   Testabilidade
+-   Padronização de erro
+-   Facilidade para mock em testes
+
+------------------------------------------------------------------------
+
+## ⏳ Carregamento, Usabilidade e Acessibilidade
+
+### ✔ Loading
+
+-   Controle de `loading` via hooks
+-   Renderização condicional com fallback visual
+-   Cancelamento de requisição com `AbortController`
+
+### ✔ Usabilidade
+
+-   Breadcrumb para navegação
+-   Sidebar com estado ativo
+-   Filtros combináveis (status, categoria e busca)
+-   Modal lateral para detalhes
+-   Feedback visual com badges de status
+
+### ✔ Acessibilidade
+
+-   Uso de elementos semânticos (`nav`, `ul`, `button`)
+-   Labels apropriados
+-   Texto alternativo em imagens
+-   Contraste adequado em estados visuais
+
+------------------------------------------------------------------------
+
+## 🚀 Técnicas de Performance
+
+-   Filtros aplicados antes do agrupamento
+-   Agrupamento com `reduce`
+-   Cancelamento de requisições
+-   Estado derivado (evitando duplicação)
+-   Separação por hooks para evitar re-renderizações desnecessárias
+
+------------------------------------------------------------------------
+
+## 🧪 Estratégia de Testes
+
+### ✔ Testes Unitários
+
+-   Renderização do `StatusBadge`
+-   Funcionamento de filtros
+-   Agrupamento por categoria
+-   Hooks com mock de API
+
+### ✔ Testes de Integração
+
+-   Fluxo de login
+-   ProtectedRoute
+-   Atualização de status
+-   Abertura e fechamento de modal
+
+### ✔ Testes Futuros Possíveis
+
+-   Testes E2E (Cypress / Playwright)
+-   Teste de acessibilidade (axe)
+-   Teste de performance com grandes volumes de dados
+
+------------------------------------------------------------------------
+
+## 🏁 Conclusão
+
+A arquitetura foi construída com foco em:
+
+-   Separação de responsabilidades
+-   Reutilização
+-   Escalabilidade
+-   Manutenção facilitada
+-   Tipagem forte com TypeScript
+-   Experiência do usuário consistente
+
+A aplicação está preparada para evoluir para padrões ainda mais
+robustos, como:
+
+-   Camada de serviços
+-   Cache inteligente
+-   Interceptadores
+-   Padrão SWR
+-   Arquitetura Clean
+
+------------------------------------------------------------------------
+
+📌 Documento gerado automaticamente para fins de documentação técnica.
+
 # 👨‍💻 Desenvolvido por:
 
-## Pedro170
+## Pedro
 
 ### Projeto de Portfólio.
