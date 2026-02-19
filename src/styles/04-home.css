@@ -1,0 +1,155 @@
+/* ============================================
+   HOME - Banner e Sobre
+   ============================================ */
+
+/* Banner Topo */
+.home-banner-topo-section {
+  position: relative;
+  padding-inline: .938rem;
+}
+
+.home-banner-topo-section .box-img {
+  border-radius: var(--gap);
+  overflow: hidden;
+}
+
+.home-banner-topo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.home-banner-topo .box-texto {
+  color: var(--color-06);
+}
+
+.home-banner-topo .box-texto h1 {
+  font-family: 'Black Ops One', sans-serif;
+  font-weight: 400;
+  font-size: 2.938rem;
+  line-height: 1.1;
+  margin-bottom: var(--gap-s);
+}
+
+.home-banner-topo .box-texto p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  margin-bottom: var(--gap);
+}
+
+.home-banner-topo .box-texto a {
+  display: block;
+  max-width: max-content;
+  background: linear-gradient(180deg, #F4712A 0%, #BF5820 100%);
+  border-radius: var(--gap-s);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: .875rem;
+  line-height: 1.2;
+  text-decoration: none;
+  color: inherit;
+  padding: var(--gap-m) var(--gap);
+}
+
+/* Sobre */
+.home-sobre__grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+}
+
+.home-sobre__grid-item.textos-institucionais {
+  border-right: dashed 1px var(--border-color);
+  padding-block: 3.75rem;
+}
+
+.home-sobre__grid-item.textos-institucionais .box-texto-intro h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: var(--color-03);
+}
+
+.home-sobre__grid-item.textos-institucionais .box-texto-intro p {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.33;
+  letter-spacing: 0.02em;
+  color: var(--color-05);
+}
+
+.home-sobre__grid-item.textos-institucionais ul {
+  row-gap: 2.5rem;
+  border-top: dashed 1px var(--border-color);
+  padding-top: 3.75rem;
+  margin-top: 3.75rem;
+}
+
+.home-sobre__grid-item.textos-institucionais ul li {
+  max-width: 512px;
+  grid-template-columns: auto 1fr;
+  gap: var(--gap-m);
+}
+
+.home-sobre__grid-item.textos-institucionais ul li img {
+  width: 52px;
+}
+
+.home-sobre__grid-item.textos-institucionais ul li .box-texto h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: var(--color-03);
+}
+
+.home-sobre__grid-item.textos-institucionais ul li .box-texto p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: var(--color-05);
+}
+
+.home-sobre__grid-item.textos-foto {
+  padding-top: 3.75rem;
+}
+
+.home-sobre__grid-item.textos-foto .box-img-texto {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--gap);
+  border-bottom: dashed 1px var(--border-color);
+  padding: 0 0 2.125rem 3.75rem;
+  margin-bottom: 2rem;
+}
+
+.home-sobre__grid-item.textos-foto .box-img-texto img {
+  width: 3.75rem;
+}
+
+.home-sobre__grid-item.textos-foto .box-img-texto p {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  color: var(--color-05);
+}
+
+.home-sobre__grid-item.textos-foto .box-banner {
+  border-radius: var(--gap-s);
+  margin-left: 3.75rem;
+  overflow: hidden;
+}

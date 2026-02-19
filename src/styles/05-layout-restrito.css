@@ -1,0 +1,190 @@
+/* ============================================
+   LAYOUT RESTRITO - Sidebar, top-bar, conteúdo
+   ============================================ */
+
+.home-logado-section {
+  padding: 1.25rem;
+}
+
+.home-logado {
+  position: relative;
+}
+
+.home-logado.container {
+  gap: 0;
+  border-radius: var(--gap-m);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.home-logado .sidebar {
+  justify-content: flex-start;
+  background: linear-gradient(180deg, #1A191E 0%, #2C2A33 48.32%, #1B1A22 100%);
+}
+
+.home-logado .sidebar a, .home-logado .sidebar h2, .home-logado .sidebar button {
+  color: var(--color-06);
+}
+
+.home-logado .sidebar .box-logo {
+  height: 80px;
+  width: 100%;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--gap-s);
+  background: #18181C;
+  border-bottom: solid 1px #18181C;
+  padding: var(--gap-m);
+}
+
+.home-logado .sidebar .box-logo img {
+  width: 40px;
+}
+
+.home-logado .sidebar .box-logo h2 {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-06);
+}
+
+.home-logado .sidebar nav {
+  width: 100%;
+  color: var(--color-06);
+  padding: var(--gap-m);
+}
+
+.home-logado .sidebar ul {
+  row-gap: var(--gap-s);
+  width: 100%;
+}
+
+.home-logado .sidebar button {
+  background: transparent;
+}
+
+.home-logado .sidebar a,
+.home-logado .sidebar button {
+  transition: linear .3s;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  gap: var(--gap-s);
+  width: 100%;
+  border-radius: var(--gap-s);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  text-decoration: none;
+  padding: var(--gap-m);
+  cursor: pointer;
+}
+
+.home-logado .sidebar a:hover,
+.home-logado .sidebar a.active,
+.home-logado .sidebar button.active {
+  background: linear-gradient(93.69deg, #DE7741 0%, #CB5F30 100%);
+}
+
+.home-logado .sidebar a:hover .box-icone img,
+.home-logado .sidebar a.active .box-icone img,
+.home-logado .sidebar button:hover .box-icone img,
+.home-logado .sidebar button.active .box-icone img {
+  filter: brightness(0) invert(1);
+}
+
+.home-logado .sidebar a .box-icone,
+.home-logado .sidebar button .box-icone {
+  width: 20px;
+}
+
+.conteudo-principal {
+  background: #f8f8f8;
+}
+
+.conteudo-principal .top-bar {
+  height: 80px;
+  width: 100%;
+  justify-content: space-between;
+  gap: var(--gap-m);
+  border-bottom: solid 1px #D5CFD2;
+  background: #F3EFEE;
+  padding: 10.6px var(--gap-m);
+}
+
+.conteudo-principal .top-bar .input-group {
+  position: relative;
+  height: 3.125rem;
+  width: 100%;
+}
+
+.conteudo-principal .top-bar .input-group input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border: solid 1px #DFDBDE;
+  border-radius: var(--gap-s);
+  box-shadow: var(--box-shadow);
+  padding: var(--gap-s);
+}
+
+.conteudo-principal .top-bar .input-group img {
+  position: absolute;
+  top: 50%;
+  right: var(--gap-m);
+  transform: translateY(-50%);
+  width: 20px;
+}
+
+.conteudo-principal .top-bar .box-perfil {
+  border-radius: var(--gap-s);
+  background: var(--color-03);
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  gap: 2.5rem;
+  padding: var(--gap-s);
+}
+
+.conteudo-principal .top-bar .box-perfil .box-notificacao {
+  position: relative;
+}
+
+.conteudo-principal .top-bar .box-perfil .box-notificacao::after {
+  content: '3';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  border: solid 2px var(--color-03);
+  border-radius: var(--gap);
+  background: #F4793F;
+  font-family: var(--font-heading-02);
+  font-weight: 600;
+  font-size: .75rem;
+  color: var(--color-06);
+}
+
+.conteudo-principal .top-bar .box-perfil .box-notificacao img {
+  width: 15px;
+}
+
+.conteudo-principal .top-bar .box-perfil span {
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  background: var(--color-01);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.22;
+  color: var(--color-06);
+}
+
+.conteudo-principal .content {
+  padding: var(--gap-m);
+}

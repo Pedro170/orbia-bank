@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OrbiaBankSVG from "../../assets/OrbiaBankSVG";
 import cadeado from "../../assets/Home/Icons/acessar.svg";
 import Input from "../../components/Input";
+import AlertModal from "../../components/AlertModal";
 import { useDataContext } from "../../context/DataContext";
 
+const SetaDireita = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const Header = () => {
-  const {login, setLogin, senha, setSenha, signIn, usuario, logout} = useDataContext();
+  const { login, setLogin, senha, setSenha, signIn, usuario, logout } =
+    useDataContext();
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.MouseEvent) => {
     event.preventDefault();
@@ -16,9 +25,15 @@ const Header = () => {
       navigate("/restrito");
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message);
+        setErrorMessage(error.message);
       }
     }
+  };
+
+  const handleLogout = () => {
+    logout();
+    setLogin("");
+    setSenha("");
   };
 
   return (
@@ -44,7 +59,7 @@ const Header = () => {
               <span style={{ marginRight: "12px" }}>
                 Olá, {usuario.nome}
               </span>
-              <button onClick={logout}>Sair</button>
+              <button onClick={handleLogout}>Sair</button>
             </div>
           ) : (
             <>
@@ -79,8 +94,14 @@ const Header = () => {
                 <button
                   onClick={handleSubmit}
                   className="acessar flex-center"
+                  type="button"
+                  aria-label={login.trim() && senha.trim() ? "Entrar" : "Acessar"}
                 >
-                  <img src={cadeado} alt="" />
+                  {login.trim() && senha.trim() ? (
+                    <SetaDireita />
+                  ) : (
+                    <img src={cadeado} alt="" />
+                  )}
                 </button>
               </div>
 
@@ -91,6 +112,13 @@ const Header = () => {
           )}
         </div>
       </div>
+
+      <AlertModal
+        isOpen={errorMessage !== null}
+        onClose={() => setErrorMessage(null)}
+        message={errorMessage ?? ""}
+        variant="error"
+      />
     </header>
   );
 };

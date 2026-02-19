@@ -1,0 +1,226 @@
+/* ============================================
+   RESPONSIVO - Media queries
+   ============================================ */
+
+@media (min-width: 600px) {
+  .top-bar.flex-center::before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    border-radius: var(--gap-m);
+    background: var(--color-03);
+  }
+
+  .btn-sair-mobile {
+    display: none;
+  }
+}
+
+.btn-sair-mobile {
+  font-family: var(--font-heading-02);
+  border-radius: var(--gap-s);
+  background: var(--color-03);
+  color: var(--color-06);
+  padding: var(--gap-s);
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    padding-inline: var(--gap-m);
+  }
+}
+
+@media (max-width: 1100px) {
+  .header-principal .wrapper {
+    flex-direction: column;
+    height: initial;
+  }
+
+  .home-sobre__grid-item.textos-foto .box-img-texto {
+    padding: 0 0 1.25rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .home-sobre__grid-item.textos-institucionais ul {
+    padding-top: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .home-sobre__grid-item.textos-foto .box-banner {
+    margin-left: 1.125rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .home-logado-section {
+    padding: var(--gap-s);
+  }
+
+  .home-logado {
+    grid-template-columns: 1fr;
+  }
+
+  .home-logado .conteudo-principal {
+    order: 1;
+  }
+}
+
+@media (max-width: 750px) {
+  .header-principal {
+    margin: 0;
+  }
+
+  .header-principal .btn-acessos {
+    width: 100%;
+  }
+
+  .header-principal .btn-acessos .form-login-senha,
+  .header-principal .btn-acessos .criar-conta {
+    max-width: initial;
+  }
+
+  .header-principal .btn-acessos .criar-conta {
+    text-align: center;
+  }
+
+  .home-banner-topo .box-texto {
+    display: none;
+  }
+
+  .home-sobre__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-sobre__grid-item.textos-institucionais ul {
+    row-gap: 1.5rem;
+  }
+
+  .home-sobre__grid-item.textos-institucionais {
+    padding-bottom: var(--gap-m);
+  }
+
+  .home-sobre__grid-item.textos-foto {
+    padding-top: var(--gap-m);
+  }
+
+  .home-sobre__grid-item.textos-foto .box-banner {
+    order: -1;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-sobre__grid-item.textos-institucionais {
+    padding-top: var(--gap);
+  }
+
+  .home-logado-section .home-logado .home-logado-navegacao {
+    position: fixed;
+    left: 10px;
+    bottom: calc(100vh - 98vh);
+    background: linear-gradient(180deg, #1A191E 0%, #2C2A33 48.32%, #1B1A22 100%);
+    padding: var(--gap-s);
+    z-index: 50;
+    width: calc(100% - 20px);
+    border-radius: 10px;
+    box-shadow: 0px 40px 60px #1A191E, -90px 40px 60px #1A191E, 90px 40px 60px #1A191E;
+    padding: .313rem;
+  }
+
+  .home-logado-section .home-logado .home-logado-navegacao ul {
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
+  }
+
+  .home-logado-section .home-logado .home-logado-navegacao ul li a {
+    gap: .313rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    border-radius: .5rem;
+    font-size: .5rem;
+    padding: .313rem;
+  }
+
+  .home-logado-section .home-logado .home-logado-navegacao ul li.notificacoes,
+  .home-logado-section .home-logado .home-logado-navegacao ul li.sair {
+    display: none;
+  }
+
+  .home-logado-section .conteudo-principal {
+    padding-bottom: 63px;
+  }
+
+  .home-logado-section .conteudo-principal .content {
+    border-top: solid 1px #eee;
+    padding: 0;
+    margin-top: var(--gap-m);
+    padding-top: var(--gap-m);
+  }
+
+  .home-logado-section .conteudo-principal .top-bar {
+    height: initial;
+    border-radius: 0 0 10px 10px;
+    background: var(--color-04);
+    padding: .5rem;
+  }
+
+  .home-logado .sidebar .box-logo {
+    height: initial;
+    padding: .5rem;
+  }
+
+  .home-logado-section .conteudo-principal .top-bar .input-group {
+    height: initial;
+  }
+
+  .home-logado-section .conteudo-principal .top-bar .input-group img {
+    right: .313rem;
+  }
+
+  .home-logado-section .conteudo-principal .top-bar .box-perfil {
+    order: -1;
+    padding: .313rem;
+  }
+
+  .home-logado-section .conteudo-principal .top-bar .box-perfil .box-nome {
+    width: 28px;
+    height: 28px;
+  }
+
+  .produtos-page .filtros {
+    flex-direction: column;
+    gap: var(--gap-s);
+    margin-bottom: var(--gap);
+  }
+
+  .produtos-page .filtros button {
+    padding: var(--gap-s);
+  }
+
+  .conteudo-principal .content .saldo-card {
+    padding: var(--gap-m);
+  }
+
+  .conteudo-principal .content .saldo-card p {
+    font-size: 1.125rem;
+  }
+
+  .conteudo-principal .content h1,
+  .conteudo-principal .content h2 {
+    font-size: 1rem;
+  }
+
+  .conteudo-principal .content .transacao-item {
+    padding: .5rem;
+  }
+
+  .conteudo-principal .content .transacao-item h3 {
+    font-size: 1rem;
+  }
+
+  .conteudo-principal .content .transacao-item strong {
+    font-size: .875rem;
+  }
+}

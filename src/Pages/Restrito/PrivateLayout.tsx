@@ -95,15 +95,11 @@ const PrivateLayout = () => {
           </nav>
         </aside>
 
-        <main
-          className="conteudo-principal"
-          style={{ minHeight: "calc(100vh - 40px)" }}
-        >
+        <main className="conteudo-principal" style={{ minHeight: "calc(100vh - 40px)" }}>
           <header className="top-bar flex-center">
-            <div className="input-group">
-              <input type="search" />
-              <img src={lupa} alt="" />
-            </div>
+            <button onClick={handleLogout} className="btn-sair-mobile">
+              Sair
+            </button>
             <div className="box-perfil grid-center">
               <div className="box-notificacao">
                 <img src={notificacoes} alt="notificações" />

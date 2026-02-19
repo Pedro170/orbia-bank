@@ -1,16 +1,17 @@
 import React from "react";
 import { useProdutos } from "../../hooks/useProdutos";
-import StatusBadge from "../../components/StatusBadge";
 import type { Produto } from "../../types/types";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Loading from "../../components/Loading";
+import Modal from "../../components/Modal";
+import ProdutoItem from "../../components/ProdutoItem";
 
 const categoriaLabels: Record<string, string> = {
   cartao: "Cartões",
   investimento: "Investimentos",
   financiamento: "Financiamentos",
   emprestimo: "Empréstimos",
-  poupanca: "Poupança"
+  poupanca: "Poupança",
 };
 
 const categoriaIcones: Record<string, string> = {
@@ -18,7 +19,7 @@ const categoriaIcones: Record<string, string> = {
   investimento: "📈",
   financiamento: "🏠",
   emprestimo: "💰",
-  poupanca: "🏦"
+  poupanca: "🏦",
 };
 
 const Produtos = () => {
@@ -30,12 +31,8 @@ const Produtos = () => {
   const [filtroCategoria, setFiltroCategoria] =
     React.useState<string>("todas");
 
-  const [produtoSelecionado, setProdutoSelecionado] = React.useState<Produto | null>(null);
-  const limparFiltros = () => {
-    setBusca("");
-    setFiltroStatus("todos");
-    setFiltroCategoria("todas");
-  };
+  const [produtoSelecionado, setProdutoSelecionado] =
+    React.useState<Produto | null>(null);
 
   const produtosFiltrados = produtos
     .filter((produto) => {
@@ -61,7 +58,7 @@ const Produtos = () => {
     {}
   );
 
-  if (loading === true) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <div className="produtos-page">
@@ -69,53 +66,54 @@ const Produtos = () => {
       <Breadcrumbs />
 
       <div className="filtros flex">
-        <input
-          type="text"
-          placeholder="Buscar por nome..."
-          value={busca}
-          onChange={({currentTarget}) => setBusca(currentTarget.value)}
-        />
+        <div className="filtros-busca">
+          <input
+            type="text"
+            placeholder="Buscar por nome"
+            value={busca}
+            onChange={({ currentTarget }) => setBusca(currentTarget.value)}
+            className="filtros-busca__input"
+          />
+          {busca.length > 0 && (
+            <button
+              type="button"
+              className="filtros-busca__limpar"
+              onClick={() => setBusca("")}
+              aria-label="Limpar busca"
+            >
+              ×
+            </button>
+          )}
+        </div>
 
-          <select
-            value={filtroStatus}
-            onChange={({currentTarget}) =>
-              setFiltroStatus(
-                currentTarget.value as "todos" | "ativo" | "inativo"
-              )
-            }
-          >
-            <option value="todos">Todos Status</option>
-            <option value="ativo">Ativos</option>
-            <option value="inativo">Inativos</option>
-          </select>
+        <select value={filtroStatus} onChange={({ currentTarget }) => setFiltroStatus(currentTarget.value as "todos" | "ativo" | "inativo")}>
+          <option value="todos">Todos Status</option>
+          <option value="ativo">Ativos</option>
+          <option value="inativo">Inativos</option>
+        </select>
 
-          <select
-            value={filtroCategoria}
-            onChange={({currentTarget}) =>
-              setFiltroCategoria(currentTarget.value)
-            }
-          >
-            <option value="todas">Todas Categorias</option>
-            {Object.entries(categoriaLabels).map(
-              ([key, label]) => (
-                <option key={key} value={key}>
-                  {label}
-                </option>
-              )
-            )}
-          </select>
-
-          <button
-            className="btn-limpar"
-            onClick={limparFiltros}
-          >
-            Limpar Filtros
-          </button>
+        <select value={filtroCategoria} onChange={({ currentTarget }) => setFiltroCategoria(currentTarget.value)}>
+          <option value="todas">Todas Categorias</option>
+          {Object.entries(categoriaLabels).map(([key, label]) => (
+            <option key={key} value={key}>
+              {label}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="categoria-bloco__grid flex-column">
-        {Object.entries(produtosAgrupados).map(
-          ([categoria, lista]) => (
+        {produtosFiltrados.length === 0 ? (
+          <div className="produtos-nenhum-resultado">
+            <p className="produtos-nenhum-resultado__mensagem">
+              Nenhum produto encontrado.
+            </p>
+            <p className="produtos-nenhum-resultado__dica">
+              Tente ajustar os filtros ou o termo de busca.
+            </p>
+          </div>
+        ) : (
+          Object.entries(produtosAgrupados).map(([categoria, lista]) => (
             <div key={categoria} className="categoria-bloco">
               <h2 className="grid">
                 {categoriaIcones[categoria]}{" "}
@@ -123,71 +121,28 @@ const Produtos = () => {
               </h2>
 
               <div className="produtos-grid">
-                {lista.map((produto) => {
-                  const ultimos4 = produto.numero_cartao
-                    ? produto.numero_cartao.slice(-4)
-                    : null;
-
-                  return (
-                    <div
-                      key={produto.id}
-                      className={`produto-card ${categoria}`}
-                    >
-                      <div className="produto-header">
-                        <h3>{produto.nome}</h3>
-                        <StatusBadge status={produto.status}/>
-                        {ultimos4 && (<p>**** **** {ultimos4}</p>)}
-                      </div>
-
-                      <div className="info-btn-acoes flex-center">
-                        <div className="box-info">
-                          <p>{produto.tipo}</p>
-    
-                          {ultimos4 && (<p>**** {ultimos4}</p>)}
-                        </div>
-  
-                        <div className="produto-actions">
-                          <button onClick={() => alterarStatus(produto.id, produto.status) }>
-                            {produto.status === "ativo"
-                              ? "Desativar"
-                              : "Ativar"}
-                          </button>
-  
-                          <button className="btn-detalhes" onClick={() => setProdutoSelecionado(produto)}>
-                            Ver Detalhes
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+                {lista.map((produto) => (
+                  <ProdutoItem
+                    key={produto.id}
+                    produto={produto}
+                    categoria={categoria}
+                    alterarStatus={alterarStatus}
+                    setProdutoSelecionado={setProdutoSelecionado}
+                  />
+                ))}
               </div>
             </div>
-          )
+          ))
         )}
       </div>
 
-      {produtoSelecionado && (
-        <div className="modal-overlay flex-center">
-          <div className="modal-lateral">
-            <div className="header-modal flex-center">
-              <h2>
-                {produtoSelecionado.nome}
-              </h2>
-
-              <button
-                className="fechar"
-                onClick={() =>
-                  setProdutoSelecionado(null)
-                }
-              >
-                X
-              </button>
-            </div>
-
-            <StatusBadge
-              status={produtoSelecionado.status}
-            />
+      <Modal isOpen={!!produtoSelecionado} title={produtoSelecionado?.nome} onClose={() => setProdutoSelecionado(null)}>
+        {produtoSelecionado && (
+          <>
+            <p>
+              <strong>Status:</strong>{" "}
+              {produtoSelecionado.status}
+            </p>
 
             <p>
               <strong>Tipo:</strong>{" "}
@@ -205,9 +160,9 @@ const Produtos = () => {
                 {produtoSelecionado.taxa_juros}%
               </p>
             )}
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </Modal>
     </div>
   );
 };

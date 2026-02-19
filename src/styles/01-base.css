@@ -1,0 +1,58 @@
+/* ============================================
+   BASE - Reset, variáveis, elementos globais
+   ============================================ */
+
+@font-face {
+  font-family: 'bioweapon';
+  src: url('../assets/Fonts/BIOWEAPON.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'oldsansblack';
+  src: url('../assets/Fonts/OldSansBlack.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --color-01: #F4712A;
+  --color-02: #BF5820;
+  --color-03: #2B2B2B;
+  --color-04: #595959;
+  --color-05: #2E2E2E;
+  --color-06: #ffffff;
+  --border-color: #B2B2B2;
+  --box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  --gap-s: .625rem;
+  --gap-m: .938rem;
+  --gap: 1.875rem;
+  --font-display: 'bioweapon', sans-serif;
+  --font-heading: 'oldsansblack', sans-serif;
+  --font-heading-02: 'Montserrat', sans-serif;
+}
+
+body {
+  background: var(--color-06);
+}
+
+video, img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}

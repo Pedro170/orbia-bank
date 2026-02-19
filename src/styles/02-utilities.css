@@ -1,0 +1,48 @@
+/* ============================================
+   UTILITIES - Classes reutilizáveis
+   ============================================ */
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 0;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap-m);
+}
+
+.flex > * {
+  flex: 1;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-center {
+  display: grid;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 240px auto;
+  gap: var(--gap);
+}

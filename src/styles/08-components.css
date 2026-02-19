@@ -1,0 +1,60 @@
+/* ============================================
+   COMPONENTES - Breadcrumb, StatusBadge, Footer
+   ============================================ */
+
+.breadcrumb {
+  font-family: var(--font-heading-02);
+  font-weight: 600;
+  font-size: .875rem;
+  color: var(--color-03);
+  margin-bottom: var(--gap);
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: .5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: var(--font-heading-02);
+  letter-spacing: 0.5px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.badge-ativo {
+  background: #e6f9ed;
+  color: #1a7f37;
+}
+
+.badge-ativo .status-dot {
+  background: #1a7f37;
+}
+
+.badge-inativo {
+  background: #fdeaea;
+  color: #c62828;
+}
+
+.badge-inativo .status-dot {
+  background: #c62828;
+}
+
+/* Footer */
+.footer-principal {
+  font-family: var(--font-heading-02);
+  background: var(--color-03);
+  color: var(--color-06);
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}

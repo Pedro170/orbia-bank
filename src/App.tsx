@@ -1,15 +1,15 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { DataContextProvider } from "./context/DataContext";
-import "./Style.css";
+import "./styles/index.css";
 import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <DataContextProvider>
       <AppRoutes />
       </DataContextProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

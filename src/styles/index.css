@@ -1,0 +1,15 @@
+/* ============================================
+   ENTRADA ÚNICA DE ESTILOS
+   Ordem: base → utilities → layout/páginas → componentes → responsivo
+   ============================================ */
+
+@import "./01-base.css";
+@import "./02-utilities.css";
+@import "./03-header.css";
+@import "./04-home.css";
+@import "./05-layout-restrito.css";
+@import "./06-dashboard.css";
+@import "./07-produtos.css";
+@import "./08-components.css";
+@import "./09-modal.css";
+@import "./10-responsive.css";
